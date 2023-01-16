@@ -1,4 +1,5 @@
 import React from "react";
+import ColorItem from "./ColorItem";
 
 function ColorList() {
   const colors = [
@@ -9,18 +10,40 @@ function ColorList() {
     "hotpink",
   ];
 
+  const users = [
+    { id: 1, firstName: "Duane", lastName: "Watson" },
+    { id: 2, firstName: "Duane", lastName: "Johnson" },
+  ];
+
+  const userList = users.map((user) => {
+    return <li key={user.id}>{user.firstName}</li>
+  })
+
+  
+  // const colorElement = colors.map((color) => {
+  //   return <li key = {color} style={{color: color}}>{color}</li> 
+  // })
+
+  const colorElement = colors.map((color) => {
+    return <ColorItem key={color} style = {{color: color}} color={color} />
+  })
+
+  
+
   return (
     <div>
       <h1>Top 5 CSS Colors</h1>
       <ol>
-        <li style={{ color: colors[0] }}>{colors[0]}</li>
-        <li style={{ color: colors[1] }}>{colors[1]}</li>
-        <li style={{ color: colors[2] }}>{colors[2]}</li>
-        <li style={{ color: colors[3] }}>{colors[3]}</li>
-        <li style={{ color: colors[4] }}>{colors[4]}</li>
+       {colorElement}
+      </ol>
+      <h1>Top Users</h1>
+      <ol>
+        {userList}
       </ol>
     </div>
   );
 }
 
 export default ColorList;
+
+

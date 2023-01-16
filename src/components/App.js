@@ -6,7 +6,7 @@ function App() {
     <div>
       <ColorList />
     </div>
-  );
-}
+  )
 
-export default App;
+}
+export default App
